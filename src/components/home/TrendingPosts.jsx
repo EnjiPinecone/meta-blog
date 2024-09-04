@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import TrendingPostCard from "./TrendingPostCard";
 
-const USER_NAME = "gereltuyamz";
 const PER_PAGE = 4;
 export default function TrendingPosts() {
   const [posts, setPosts] = useState([]);
 
   const fetchTrendingPosts = () => {
     fetch(
-      `https://dev.to/api/articles?username=${USER_NAME}&state=rising&per_page=${PER_PAGE}`
+      `https://dev.to/api/articles?per_page=${PER_PAGE}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -30,7 +29,7 @@ export default function TrendingPosts() {
             key={idx}
             title={post.title}
             image={post.cover_image}
-            tags={post.tag_list}
+            tags={post.tag_list.splice(0,1)}
           />
         ))}
       </div>

@@ -3,10 +3,10 @@ import { format } from "date-fns";
 
 export default function SinglePostCard({ title, image, tags, edited_at }) {
   return (
-    <div className="w-full border rounded-xl p-3">
-      <img src={image} className="w-full h-80 object-cover rounded-xl" />
-      <div className="space-y-4 mt-5">
-        <div className="flex gap-1 text-xs">
+    <div className="w-full border rounded-xl h-[455px] flex flex-col justify-between">
+      <img src={image} className="w-full object-cover rounded-xl h-[240px] p-3" />
+      <div className="flex flex-col gap-5 p-4">
+        <div className="flex gap-1 text-sm">
           {tags.map((tag, idx) => (
             <div
               key={idx}
@@ -16,8 +16,8 @@ export default function SinglePostCard({ title, image, tags, edited_at }) {
             </div>
           ))}
         </div>
-        <h3 className=" text-lg font-bold">{title}</h3>
-        <span className="text-[#97989F] text-sm">
+        <h3 className=" text-2xl font-bold h-[90px]">{title}</h3>
+        <span className="text-[#97989F] text-sm ">
           {format(new Date(edited_at), "MMMM d, yyy")}
         </span>
       </div>

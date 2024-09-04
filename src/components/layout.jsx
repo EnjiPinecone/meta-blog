@@ -5,7 +5,7 @@ export default function Layout({ children }) {
   return (
     <div className='w-full'>
       <Header />
-      <main className='w-full md:max-w-6xl mx-auto'>{children}</main>
+      <main className='w-full md:max-w-7xl mx-auto'>{children}</main>
       <Footer />
     </div>
   )
