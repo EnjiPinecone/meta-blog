@@ -46,7 +46,7 @@ export default function Footer() {
           <span>+976 89980455</span>
           </li>
         </ul>
-        <div className='col-span-3 flex justify-between items-center'>
+        <div className='col-span-3 flex justify-between items-center  border-t-[1px] border-gray-400'>
         <Copyright />
         <div className=' divide-x divide-solid flex gap-4 divide-gray-300'>
           <span>Terms of Use</span>

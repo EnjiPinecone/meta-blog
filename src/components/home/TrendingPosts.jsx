@@ -26,6 +26,7 @@ export default function TrendingPosts() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         {posts.map((post, idx) => (
           <TrendingPostCard
+            id={post.id}
             key={idx}
             title={post.title}
             image={post.cover_image}
