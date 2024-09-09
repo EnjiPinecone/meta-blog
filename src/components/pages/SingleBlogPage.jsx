@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import SinglePostCard from "../home/SinglePostCard";
+import { format } from "date-fns";
 
 export default function SingleBlogPage() {
   const router = useRouter();
@@ -28,8 +30,12 @@ export default function SingleBlogPage() {
   return (
     <div>
       <h1 className="text-3xl">{post.title}</h1>
-      <img src={post.user.profile_image} alt="" className="w-9 h-9" />
+      <div className="flex items-center gap-2">
+        <img src={post.user.profile_image} alt="" className="w-9 h-9" />
+        <p>{format(new Date(post.created_at), "MMMM d, yyy")}</p>
+      </div>
       <img src={post.cover_image} alt="" className="w-full h-full rounded-xl" />
+      <p> {post.body_html} </p>
     </div>
   );
 }
