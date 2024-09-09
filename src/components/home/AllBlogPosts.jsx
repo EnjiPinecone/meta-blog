@@ -24,12 +24,12 @@ export default function AllBlogPosts() {
   };
 
   const handleLoadMore = () => {
-    setPage(page + 3)
-  }
+    setPage(page + 3);
+  };
 
-  useEffect(() => {
-    fetchPosts("all");
-  }, []);
+  // useEffect(() => {
+  //   fetchPosts("all");
+  // }, []);
 
   useEffect(() => {
     fetchPosts(selectedTag);
@@ -47,7 +47,7 @@ export default function AllBlogPosts() {
                 selectedTag == tag ? "text-[#D4A373]" : null
               }`}
               onClick={() => {
-                setselectedTag(tag);
+                setselectedTag(tag === "all" ? "" : tag);
               }}
             >
               {tag}
@@ -72,7 +72,14 @@ export default function AllBlogPosts() {
         ))}
         <div></div>
         <div className="flex justify-center ">
-          <button className="p-3 border rounded-lg" onClick={()=>{handleLoadMore()}}>Load More</button>
+          <button
+            className="p-3 border rounded-lg"
+            onClick={() => {
+              handleLoadMore();
+            }}
+          >
+            Load More
+          </button>
         </div>
       </div>
     </div>
